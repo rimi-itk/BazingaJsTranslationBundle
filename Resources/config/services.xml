@@ -26,5 +26,11 @@
             <argument>%kernel.project_dir%</argument>
             <tag name="console.command" command="bazinga:js-translation:dump" />
         </service>
+        <service id="bazinga.jstranslation.translation_js_extractor" class="Bazinga\Bundle\JsTranslationBundle\Extractor\JsExtractor">
+            <call method="setLogger">
+                <argument type="service" id="logger"/>
+            </call>
+            <tag name="translation.extractor" alias="js" />
+        </service>
     </services>
 </container>
